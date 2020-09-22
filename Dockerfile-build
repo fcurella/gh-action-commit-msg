@@ -1,0 +1,7 @@
+FROM alpine:3.12
+RUN apk add --no-cache --virtual bash git
+RUN mkdir /app
+WORKDIR /app
+COPY ./src /app
+
+ENTRYPOINT ["/bin/sh", "/app/commit_msg.sh"]
